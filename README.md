@@ -5,12 +5,12 @@ Scoop is a command-line installer for Windows.
 
 Requirements:
 
-* [PowerShell 3](http://www.microsoft.com/en-us/download/details.aspx?id=34595)
-* PowerShell must be enabled for your user account e.g. `set-executionpolicy unrestricted -s cu`
+* PowerShell 2
+* PowerShell must be enabled for your user account e.g. `set-executionpolicy unrestricted -s currentuser`
 
 To install:
 
-    iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+    iex (new-object net.webclient).downloadstring('https://raw.githubusercontent.com/deevus/scoop-powershell2/master/bin/install.ps1')
     
 Once installed, run `scoop help` for instructions.
 
