@@ -3,7 +3,7 @@
 $erroractionpreference='stop' # quit if anything goes wrong
 
 # get core functions
-$core_url = 'https://raw.github.com/lukesampson/scoop/powershell2/lib/core.ps1'
+$core_url = 'https://raw.github.com/deevus/scoop-powershell2/master/lib/core.ps1'
 echo 'initializing...'
 iex (new-object net.webclient).downloadstring($core_url)
 
@@ -16,14 +16,14 @@ if(installed 'scoop') {
 $dir = ensure (versiondir 'scoop' 'current')
 
 # download scoop zip
-$zipurl = 'https://github.com/lukesampson/scoop/archive/powershell2.zip'
+$zipurl = 'https://github.com/deevus/scoop-powershell2/archive/master.zip'
 $zipfile = "$dir\scoop.zip"
 echo 'downloading...'
 dl $zipurl $zipfile
 
 'extracting...'
 unzip $zipfile "$dir\_scoop_extract"
-cp "$dir\_scoop_extract\scoop-powershell2\*" $dir -r -force
+cp "$dir\_scoop_extract\scoop-powershell2-master\*" $dir -r -force
 rm "$dir\_scoop_extract" -r -force
 rm $zipfile
 
@@ -51,7 +51,8 @@ shim "$jqDir\jq.exe" $false "jq-1.4"
 ensure_robocopy_in_path
 ensure_scoop_in_path
 
-$null = scoop config SCOOP_BRANCH powershell2
+$null = scoop config SCOOP_BRANCH master
+$null = scoop config SCOOP_REPO "https://github.com/deevus/scoop-powershell2/"
 
 success 'scoop was installed successfully!'
 echo "type 'scoop help' for instructions"
