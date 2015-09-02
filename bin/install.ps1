@@ -28,7 +28,7 @@ rm "$dir\_scoop_extract" -r -force
 rm $zipfile
 
 echo 'getting json libraries...'
-$jqDlUrl = "http://stedolan.github.io/jq/download/win32/jq.exe"
+$jqDlUrl = "https://github.com/stedolan/jq/releases/download/jq-1.4/jq-win32.exe"
 $jqDir = ensure (libdir "jq")
 echo 'downloading jq...'
 dl $jqDlUrl "$jqDir\jq.exe"
